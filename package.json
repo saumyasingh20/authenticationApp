@@ -1,0 +1,15 @@
+{
+  "name": "authenticationapp",
+  "version": "1.0.0",
+  "description": "my authentication app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon index.js"
+  },
+  "author": "Saumya Singh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
