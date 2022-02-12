@@ -1,6 +1,7 @@
 //importing the user schema from models/user
 const User = require('../models/user');
 const fs = require('fs');
+
 //reender the sign up page
 module.exports.signUp = function(req,res){
     if(req.isAuthenticated()){
