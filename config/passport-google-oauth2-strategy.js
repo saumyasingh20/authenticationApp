@@ -1,6 +1,7 @@
 const passport = require('passport');
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const crypto = require('crypto');
+const signUpMailer = require('../mailers/sign_up_mail');
 const User = require('../models/user');
 
 passport.use(new googleStrategy({
@@ -25,6 +26,7 @@ passport.use(new googleStrategy({
 
                 },function(err,user){
                     if(err){console.log('error in google strategy-passport',err);return;}
+                    signUpMailer.sendWelcomeMail(user);
 
                     return done(null,user);
                 });

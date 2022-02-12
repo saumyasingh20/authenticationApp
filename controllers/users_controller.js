@@ -1,6 +1,7 @@
 //importing the user schema from models/user
 const User = require('../models/user');
 const fs = require('fs');
+const signUpMailer = require('../mailers/sign_up_mail');
 
 //reender the sign up page
 module.exports.signUp = function(req,res){
@@ -23,6 +24,7 @@ module.exports.signIn = function(req,res){
 };
 module.exports.create =function(req,res){
     //step 1 check whether password and confirm password have same value, if yes then create that user in the db(if it doesnt exist already in the db) 
+   
     if(req.body.password != req.body.confirm_password){
         console.log('password not confirmed');
         req.flash('error','password and confirm password fields do not match');
@@ -41,6 +43,7 @@ module.exports.create =function(req,res){
                  req.flash('error','error in creating user in sign up process');
                  return;
              }
+             signUpMailer.sendWelcomeMail(user);
              req.flash('success','Sign Up Successful !');
            
              return res.redirect('/users/sign-in');

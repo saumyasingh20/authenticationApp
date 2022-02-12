@@ -18,7 +18,7 @@ function(req, email, password, done){
 
         if(!user){
             req.flash('error','Invalid email/password');
-            
+            return done(null, false);
         }
         bcrypt.compare(req.body.password, user.password, function (err, result) {
         if (result == true) {
