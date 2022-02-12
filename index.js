@@ -9,6 +9,7 @@ const session = require('express-session');
 
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const passportGoogle = require('./config/passport-google-oauth2-strategy');
 //to store the session cookies in mongo db
 const MongoStore = require('connect-mongo');
 const expressLayouts = require('express-ejs-layouts');
