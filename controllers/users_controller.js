@@ -2,6 +2,7 @@
 const User = require('../models/user');
 const fs = require('fs');
 const signUpMailer = require('../mailers/sign_up_mail');
+const updatePasswordMailer = require('../mailers/update_password_mail');
 const bcrypt = require('bcrypt');
 
 //reender the sign up page
@@ -87,6 +88,7 @@ module.exports.updateUserPassword = function(req,res){
             signedInUser.password=req.body.new_password;
             signedInUser.save();
             req.flash('success','Password updated successfully !');
+            updatePasswordMailer.sendPasswordUpdateMail(signedInUser);
             return res.redirect('/');
                 
             } else {

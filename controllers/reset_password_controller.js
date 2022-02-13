@@ -1,6 +1,7 @@
 const ResetPasswordToken = require('../models/reset_password_token');
 const User = require('../models/user');
 const crypto = require('crypto');
+const updatePasswordMailer = require('../mailers/update_password_mail');
 const ResetPasswordLinkMailer = require('../mailers/reset_password_link_mailer');
 
 module.exports.renderEmailForm= async function(req,res){
@@ -95,6 +96,7 @@ module.exports.ResetPassword = async function(req,res){
         resetToken.user.save();
         resetToken.save();
         req.flash('success',"Your password has been changed Successfully !");
+        updatePasswordMailer.sendPasswordUpdateMail(resetToken.user);
         return res.redirect('/users/sign-in');
 
      
