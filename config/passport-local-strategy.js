@@ -28,7 +28,7 @@ function(req, email, password, done){
                 req.flash('error','Invalid email/password');
                 return done(null, false);
                 }
-              });
+        });
         
 
         

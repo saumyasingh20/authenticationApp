@@ -2,6 +2,7 @@
 const User = require('../models/user');
 const fs = require('fs');
 const signUpMailer = require('../mailers/sign_up_mail');
+const bcrypt = require('bcrypt');
 
 //reender the sign up page
 module.exports.signUp = function(req,res){
@@ -67,5 +68,33 @@ module.exports.destroySession = function(req,res){
     req.logout();
     req.flash('success','You have been logged out');
     return res.redirect('/');
+}
+module.exports.renderUpdatePasswordForm = function(req,res){
+    return res.render('update_password_form',{
+        title:"Update Password"
+    });
+}
+module.exports.updateUserPassword = function(req,res){
+    let signedInUser = req.user;
+
+    if(req.body.new_password != req.body.confirm_password){
+        req.flash('error','New Password and Confirm password fields do not match');
+        console.log("password and confirm password dont match");
+        return res.redirect('back');    
+    }
+    bcrypt.compare(req.body.old_password, signedInUser.password, function (err, result) {
+        if (result == true) {
+            signedInUser.password=req.body.new_password;
+            signedInUser.save();
+            req.flash('success','Password updated successfully !');
+            return res.redirect('/');
+                
+            } else {
+                req.flash('error','Previous Password is incorrect');
+                return res.redirect('back');
+                }
+        });
+
+   
 }
 
