@@ -2,7 +2,7 @@
 
 A basic scalable web application that implements authentication, enables the users to sign in, sign up and sign out smoothly.
 Developed using node.js and Express.js this authentication web application uses the library passport for local authentication and social authentication.
-# Key Features :
+# Key Features & Workflow :
 ## 1) Sign Up : 
   - On being directed to users/sign-up, a sign up form appears where in the user can enter their basic profile information such as their names, email and choose a password for their account.
   - By clicking on the submit button,a post request is then sent to the server and then in the backend the server verifies if the fields password and confirm password match, if they do , the server checks if the user exists already in the database, if an existing user is found with that email address the server redirects the user to the sign in page and notifies the user about the same. 
@@ -34,4 +34,33 @@ Developed using node.js and Express.js this authentication web application uses 
    - On finding out the user by the email address, a reference to the user is stored and passed on while creating a new object for the reset password token, the access token is a random string generated using the crypto library, the isValid boolean is marked as true initially, then the generated reset password token and the user is sent to the mailer which  mails the user with the access token , the url is of the form reset-password/access-token/?access-token="access-token-value".
    - On getting directed to the URL from the mail, first the validity of the token is verified and then the reset password form is rendered, on submitting the new password a post request is sent to the server , the user is matched using the access token, finally on checking if password and confirm password field's value match , the password is updated and saved in the database and the isValid boolean of the token is marked as false and saved.
 
-NOTE : The library bcrypt is used for storing the hashed passwords in the database, whenever the password is recently modified or a new user has been created it automatically completes its job of storing the hashed passwords in the database . 
+NOTE : The library bcrypt is used for storing the hashed passwords in the database, whenever the password is recently modified or a new user has been created it automatically completes its job of storing the hashed passwords in the database .
+
+# To run the project :
+
+  1) Open terminal. 
+ 
+  2) Change the current working directory to the location where you want the cloned directory.
+  
+  ```
+  $ git clone https://github.com/saumyasingh20/authenticationApp/
+  ```
+  
+  3) Install all the dependencies by running :
+  
+  ```
+  npm install
+  ```
+  
+  4) Run npm start to run the project at local host, port 8004:
+  
+   ```
+  npm start
+  ```
+  
+  5) In your browser, enter the URL :
+  
+  ```
+  localhost:8004/
+  ```
+
