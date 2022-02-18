@@ -1,5 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const env = require('./config/environment');
 const app = express();
 const port = 8004;
 
@@ -14,7 +15,7 @@ const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const MongoStore = require('connect-mongo');
 const expressLayouts = require('express-ejs-layouts');
 
-app.use(express.static('./assets'));
+app.use(express.static(env.asset_path));
 //extract styles and scripts from the layout
 
 app.set('layout extractStyles',true);
@@ -37,7 +38,7 @@ const customMware = require('./config/middleware_flash');
 //mongo store is used to store the session cookie in the db
 app.use(session({
     name:'authenticationapp',
-    secret:'hvgdhscjhdccdwjbdcd',
+    secret: env.session_cookie_key,
     saveUninitialized:false,
     resave:false,
     cookie:{
