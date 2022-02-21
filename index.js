@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const env = require('./config/environment');
+const logger = require('morgan');
 const app = express();
 const port = 8004;
 
@@ -29,6 +30,7 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 
 
+app.use(logger(env.morgan.mode, env.morgan.options));
 app.set('view engine','ejs');
 app.set('views','./views');
 
