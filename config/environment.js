@@ -30,7 +30,7 @@ const development = {
         google_client_id:"127008531460-f1ppnpjivplkt0ctcr6prtlloicb52ee.apps.googleusercontent.com",
 
         google_client_secret:"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",
-        google_call_back_url:"http://54.221.107.85:8004/users/auth/google/callback",
+        google_call_back_url:"http://authsys.live/users/auth/google/callback",
         morgan:{
             mode:'dev',
             options:{stream: accessLogStream}
@@ -58,7 +58,7 @@ const production = {
         google_client_id:process.env.AUTH_APP_GOOGLE_CLIENT_ID,
 
         google_client_secret:process.env.AUTH_APP_GOOGLE_CLIENT_SECRET,
-        google_call_back_url:"http://54.221.107.85:8004/users/auth/google/callback",
+        google_call_back_url:"http://authsys.live/users/auth/google/callback",
         morgan:{
             mode:'combined',
             options:{stream: accessLogStream}
