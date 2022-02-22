@@ -26,7 +26,7 @@ app.set('layout extractScripts',true);
 
 app.use(expressLayouts);
 //middleware to parse the requests
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended:false}));
 
 //setting up the cookie parser
 app.use(cookieParser());
