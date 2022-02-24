@@ -2,6 +2,7 @@
 
 A basic scalable web application that implements authentication, enables the users to sign in, sign up and sign out smoothly.
 Developed using node.js and Express.js this authentication web application uses the library passport for local authentication and social authentication.
+The Web Application is deployed at : https://authsys.live
 # Key Features & Workflow :
 ## 1) Sign Up : 
   - On being directed to users/sign-up, a sign up form appears where in the user can enter their basic profile information such as their names, email and choose a password for their account.
