@@ -453,3 +453,15 @@
 ::1 - - [22/Feb/2022:08:34:59 +0000] "GET /users/sign-out HTTP/1.1" 302 46 "http://localhost:8004/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
 ::1 - - [22/Feb/2022:08:34:59 +0000] "GET / HTTP/1.1" 200 2055 "http://localhost:8004/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
 ::1 - - [22/Feb/2022:08:35:14 +0000] "GET /users/sign-in HTTP/1.1" 200 2421 "http://localhost:8004/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
+[0mGET / [32m200[0m 10.511 ms - 1814[0m
+[0mGET /favicon.ico [33m404[0m 4.587 ms - 150[0m
+[0mGET /users/sign-in [32m200[0m 4.685 ms - 2421[0m
+[0mGET /users/auth/google [36m302[0m 3.246 ms - 0[0m
+[0mGET /reset-password [32m200[0m 3.433 ms - 2027[0m
+[0mPOST /reset-password/email [36m302[0m 32.929 ms - 72[0m
+[0mGET /users/sign-in [32m200[0m 2.855 ms - 2708[0m
+[0mGET / [36m304[0m 12.755 ms - -[0m
+[0mGET /users/sign-in [32m200[0m 3.893 ms - 2421[0m
+[0mGET /reset-password [36m304[0m 4.643 ms - -[0m
+[0mPOST /reset-password/email [36m302[0m 25.200 ms - 72[0m
+[0mGET /users/sign-in [32m200[0m 3.789 ms - 2708[0m

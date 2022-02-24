@@ -58,7 +58,7 @@ const production = {
         google_client_id:process.env.AUTH_APP_GOOGLE_CLIENT_ID,
 
         google_client_secret:process.env.AUTH_APP_GOOGLE_CLIENT_SECRET,
-        google_call_back_url:"http://authsys.live/users/auth/google/callback",
+        google_call_back_url:"https://authsys.live/users/auth/google/callback",
         morgan:{
             mode:'combined',
             options:{stream: accessLogStream}
